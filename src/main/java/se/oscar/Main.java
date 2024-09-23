@@ -22,11 +22,11 @@ public class Main {
                 System.out.println("The dice game is starting. . .");
                 Game game = new Game(player1, player2);
                 game.start();
+
                 break;
             case 2:
                 System.out.println("Thank you for playing!");
                 break;
         }
-
     }
 }

@@ -19,6 +19,7 @@ public class Game {
             if (round % 2 != 0) {
                 System.out.println("Player 1: " + player1.getName() + " throws the dice. . .");
                 System.out.println(player1.getName() + " rolls a: " + throwDice());
+
             } else {
                 System.out.println("Player 2: " + player2.getName() + " throws the dice. . .");
                 System.out.println(player2.getName() + " rolls a: " + throwDice());
