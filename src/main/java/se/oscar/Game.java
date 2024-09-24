@@ -1,33 +1,44 @@
 package se.oscar;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    private final Player player1;
-    private final Player player2;
-    private int round = 1;
+    Scanner scan = new Scanner(System.in);
+    private boolean state;
 
-    public Game(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
-    }
-
-    public void start() {
-        while (round <= 4) {
-            System.out.println();
-            if (round % 2 != 0) {
-                System.out.println("Player 1: " + player1.getName() + " throws the dice. . .");
-                System.out.println(player1.getName() + " rolls a: " + throwDice());
-            } else {
-                System.out.println("Player 2: " + player2.getName() + " throws the dice. . .");
-                System.out.println(player2.getName() + " rolls a: " + throwDice());
-            }
-            round++;
+    public void Winner(Player player1, Player player2) {
+        if (player1.getScore() > player2.getScore()) {
+            System.out.println(player1.getName() + " wins with " + player1.getScore() + " points");
+        } else if (player2.getScore() > player1.getScore()) {
+            System.out.println(player2.getName() + " wins with " + player2.getScore() + " points");
         }
     }
-    public int throwDice() {
-        Random random = new Random();
-        return random.nextInt(6) + 1;
+
+    public void Draw(Player player1, Player player2) {
+        if (player1.getScore() == player2.getScore()) {
+            System.out.println("""
+                    You are currently tied, do you want to:
+                    1: Continue another round
+                    2: Exit and tie
+                    """);
+            switch (scan.nextInt()) {
+                case 1:
+
+                case 2:
+
+            }
+        }
+    }
+
+    public void setTurn(boolean turn) {
+        state = turn;
+    }
+
+    public void changeTurn() {
+        state ^= true;
+    }
+
+    public boolean getTurn() {
+        return state;
     }
 }
