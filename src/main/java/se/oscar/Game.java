@@ -3,9 +3,10 @@ package se.oscar;
 import java.util.Scanner;
 
 public class Game {
-    Scanner scan = new Scanner(System.in);
+    private final Scanner scan = new Scanner(System.in);
     private boolean state;
 
+    //WINNING CONDITION
     public void Winner(Player player1, Player player2) {
         if (player1.getScore() > player2.getScore()) {
             System.out.println(player1.getName() + " wins with " + player1.getScore() + " points");

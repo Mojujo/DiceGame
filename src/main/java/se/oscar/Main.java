@@ -14,6 +14,7 @@ public class Main {
                 Welcome to the dice game!
                        ***********
                 """);
+
         System.out.println("Enter Player 1 name:");
         Player player1 = new Player(scan.next());
 
@@ -36,7 +37,7 @@ public class Main {
 
         System.out.println("The game is starting. . ." + "\n");
 
-        do {
+        do { //GAME SEQUENCE
             if (game.getTurn()) {
                 player1.enterPrompt();
                 player1.throwDice(random);

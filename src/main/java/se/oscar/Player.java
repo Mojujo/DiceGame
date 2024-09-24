@@ -20,6 +20,7 @@ public class Player {
         return score;
     }
 
+    //THROW DICE
     public void throwDice(Random random) {
         int roll = random.nextInt(6) + 1;
         score += roll;
@@ -27,6 +28,7 @@ public class Player {
         System.out.println(name + " has " + score + " points" + "\n");
     }
 
+    //PLAYER PROMPT
     public void enterPrompt() {
         Scanner scan = new Scanner(System.in);
         System.out.println(name + "'s turn");
