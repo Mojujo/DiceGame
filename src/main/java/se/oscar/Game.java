@@ -1,10 +1,10 @@
 package se.oscar;
+
 import java.util.Scanner;
 
 public class Game {
     Scanner scan = new Scanner(System.in);
     private boolean state;
-    private boolean draw;
 
     public void Winner(Player player1, Player player2) {
         if (player1.getScore() > player2.getScore()) {
@@ -33,9 +33,11 @@ public class Game {
     public void setTurn(boolean turn) {
         state = turn;
     }
+
     public void changeTurn() {
         state ^= true;
     }
+
     public boolean getTurn() {
         return state;
     }
