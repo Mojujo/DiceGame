@@ -14,6 +14,7 @@ public class Game {
         }
     }
 
+    // IMPLEMENT DRAW
     public void Draw(Player player1, Player player2) {
         if (player1.getScore() == player2.getScore()) {
             System.out.println("""
