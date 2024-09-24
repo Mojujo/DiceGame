@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         Game game = new Game();
         Scanner scan = new Scanner(System.in);
-        Random random = new Random();
         int round = 1;
 
         System.out.println("""
@@ -33,23 +32,25 @@ public class Main {
             case 2:
                 game.setTurn(false);
                 break;
-        }
+        } // MOVE TO setTurn
 
         System.out.println("The game is starting. . ." + "\n");
 
         do { //GAME SEQUENCE
             if (game.getTurn()) {
-                player1.enterPrompt();
-                player1.throwDice(random);
+                game.enterPrompt(player1);
+                game.throwDice(player1);
                 game.changeTurn();
             } else {
-                player2.enterPrompt();
-                player2.throwDice(random);
+                game.enterPrompt(player2);
+                game.throwDice(player2);
                 game.changeTurn();
+            }
+            if (round == 4) {
+                game.Draw(player1, player2);
             }
             round++;
         } while (round <= 4);
-
         game.Winner(player1, player2);
     }
 }
