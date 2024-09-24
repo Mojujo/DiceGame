@@ -1,8 +1,5 @@
 package se.oscar;
 
-import java.util.Random;
-import java.util.Scanner;
-
 public class Player {
     private final String name;
     private int score;
