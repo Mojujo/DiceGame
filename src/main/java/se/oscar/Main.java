@@ -19,18 +19,7 @@ public class Main {
         System.out.println("Enter Player 2 name:");
         Player player2 = new Player(scan.next());
 
-        System.out.println("""
-                Choose who starts:
-                1: Player 1
-                2: Player 2""");
-        switch (scan.nextInt()) {
-            case 1:
-                game.setTurn(true);
-                break;
-            case 2:
-                game.setTurn(false);
-                break;
-        } // MOVE TO setTurn
+        game.setTurn();
 
         System.out.println("The game is starting. . ." + "\n");
 

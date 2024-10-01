@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Game {
     private final Scanner scan = new Scanner(System.in);
+    private final Random random = new Random();
     private boolean state;
 
     //WINNING CONDITION
@@ -18,7 +19,7 @@ public class Game {
         }
     }
 
-    // IMPLEMENT DRAW
+    // CHECK DRAW
     public void Draw(Player player1, Player player2) {
         if (player1.getScore() == player2.getScore()) {
             System.out.println("""
@@ -28,6 +29,8 @@ public class Game {
                     """);
             switch (scan.nextInt()) {
                 case 1:
+                    scan.nextLine();
+
                     enterPrompt(player1);
                     throwDice(player1);
                     enterPrompt(player2);
@@ -41,26 +44,36 @@ public class Game {
         }
     }
 
-    // IMPLEMENT THROW DICE
+    // THROW DICE
     public void throwDice(Player player) {
-        Random random = new Random();
         int roll = random.nextInt(6) + 1;
         player.setScore(player.getScore() + roll);
         System.out.println("Player: " + player.getName() + " rolled: " + roll);
         System.out.println(player.getName() + " has " + player.getScore() + " points" + "\n");
     }
 
-    // IMPLEMENT PROMPT
+    // ENTER PROMPT
     public void enterPrompt(Player player) {
-        Scanner scan = new Scanner(System.in);
         System.out.println(player.getName() + "'s turn");
         System.out.println("Press enter to throw the dice");
         scan.nextLine();
     }
 
     // TURN MECHANICS
-    public void setTurn(boolean turn) {
-        state = turn;
+    public void setTurn() {
+        System.out.println("""
+                Choose who starts:
+                1: Player 1
+                2: Player 2""");
+        switch (scan.nextInt()) {
+            case 1:
+                state = true;
+                break;
+            case 2:
+                state = false;
+                break;
+        }
+        scan.nextLine();
     }
 
     public void changeTurn() {
