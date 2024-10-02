@@ -34,10 +34,10 @@ public class Main {
                 game.changeTurn();
             }
             if (round == 4) {
-                game.Draw(player1, player2);
+                game.draw(player1, player2);
             }
             round++;
         } while (round <= 4);
-        game.Winner(player1, player2);
+        game.winner(player1, player2);
     }
 }

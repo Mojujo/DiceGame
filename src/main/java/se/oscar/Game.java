@@ -9,7 +9,7 @@ public class Game {
     private boolean state;
 
     //WINNING CONDITION
-    public void Winner(Player player1, Player player2) {
+    public void winner(Player player1, Player player2) {
         if (player1.getScore() > player2.getScore()) {
             System.out.println(player1.getName() + " wins with " + player1.getScore() + " points");
         } else if (player2.getScore() > player1.getScore()) {
@@ -20,7 +20,7 @@ public class Game {
     }
 
     // CHECK DRAW
-    public void Draw(Player player1, Player player2) {
+    public void draw(Player player1, Player player2) {
         if (player1.getScore() == player2.getScore()) {
             System.out.println("""
                     You are currently tied, do you want to:
@@ -36,7 +36,7 @@ public class Game {
                     enterPrompt(player2);
                     throwDice(player2);
 
-                    Draw(player1, player2); // CHECK FOR DRAW &LOOP
+                    draw(player1, player2); // CHECK FOR DRAW &LOOP
                     break;
                 case 2:
                     break;
